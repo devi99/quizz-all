@@ -1,0 +1,324 @@
+/* general */
+
+.tabulator {
+    border: 0px !important;
+    background-color:$white !important;
+    font-size: 1.0em !important;
+}
+
+
+
+.tabulator-tableHolder {
+
+}
+
+.tabulator-table {
+
+}
+
+.tabulator-loader {
+
+}
+
+.tabulator-loader-msg {
+
+}
+
+.tabulator-loading {
+
+}
+
+.tabulator-error {
+
+}
+
+.tabulator-placeholder {
+
+}
+
+.tabulator-moving {
+
+}
+
+.tabulator-block-select {
+
+}
+
+.tabulator-moving {
+
+}
+
+.tabulator-movingrow-sending {
+
+}
+
+.tabulator-movingrow-receiving {
+
+}
+
+/* columns and headers */
+
+.tabulator .tabulator-header {
+    border-bottom: 0px !important;
+    border-radius: 5px 5px 0px 0px;
+    font-weight:400;
+    padding-left: 30px !important;
+    
+}
+
+.tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-arrow {
+    display:none;
+}
+
+
+
+.tabulator-headers {
+
+}
+
+.tabulator-calcs-holder	{
+
+}
+
+.tabulator .tabulator-header .tabulator-col {
+    border-right: 0px;
+    padding: 10px;
+}
+
+.tabulator-col-content {
+
+}
+
+.tabulator-col-title {
+
+}
+
+.tabulator-col-group {
+
+}
+
+.tabulator-col-group-cols {
+
+}
+
+.tabulator-handle {
+
+}
+
+.tabulator-title-editor {
+
+}
+
+.tabulator-header-filter {
+
+}
+
+.tabulator-sortable	{
+
+}
+
+.tabulator-frozen {
+
+}
+
+.tabulator-frozen-left {
+
+}
+
+.tabulator-frozen-right	{
+
+}
+
+.tabulator-row-resize-handle {
+
+}
+
+.tabulator-col-vertical	{
+
+}
+
+.tabulator-col-vertical-flip {
+
+}
+
+.tabulator-col-resize-handle:nth-child(even) {
+    border-right: 1px dotted $grey-light2;
+}
+
+.tabulator-group-toggle {
+    display:none;
+}
+
+
+
+/* rows */
+
+.tabulator-row {
+
+}
+
+.tabulator-row-odd {
+
+}
+
+.tabulator-row-even {
+
+}
+
+.tabulator-row.tabulator-row-even {
+    padding: 10px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    border-bottom: 1px dotted $grey-medium;
+    background-color:$white;
+
+}
+
+.tabulator-row.tabulator-row-odd {
+    padding: 10px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    border-bottom: 1px dotted $grey-medium;
+    background-color:$white;
+}
+
+.tabulator-row .tabulator-cell {
+    padding: 10px;
+    border-right: 0px;
+}
+
+.tabulator-cell	{
+
+}
+
+.tabulator-cell a:link,
+.tabulator-cell a:visited {
+    color:$blue-light;
+}
+
+.tabulator-cell a:hover {
+    color:$blue-dark;
+}
+
+.tabulator-selectable {
+
+}
+
+.tabulator-unselectable	{
+
+}
+
+.tabulator-selected	{
+
+}
+
+.tabulator-editing {
+
+}
+
+.tabulator-validation-fail {
+
+}
+
+.tabulator-group {
+
+}
+
+.tabulator-row.tabulator-group {
+    border-bottom: 0px;
+    border-top: 0px;
+    border-bottom: 1px dotted $grey-medium;
+    border-right:0px;
+    background-color:$grey-light;
+    padding:10px;
+    padding-left:0px !important;
+}
+
+.tabulator-row.tabulator-group:hover {
+    background-color:$blue-light;
+    color:$white;
+}
+
+.tabulator-group-visible {
+
+}
+
+.tabulator-calcs {
+
+}
+
+.tabulator-calcs-top {
+
+}
+
+.tabulator-calcs-bottom {
+
+}
+
+.tabulator-row-handle {
+
+}
+
+.tabulator-row-handle-box {
+
+}
+
+.tabulator-row-handle-bar {
+
+}
+
+.tabulator .tabulator-row-resize-handle {
+    
+}
+
+.tabulator-responsive-collapse {
+
+}
+
+/* pagination */
+
+.tabulator-footer {
+
+}
+
+.tabulator-paginator {
+
+}
+
+.tabulator-pages {
+
+}
+
+.tabulator-page {
+
+}
+
+/* filters */
+
+.table-controls {
+    margin-top:30px;
+}
+
+/* toggles */
+
+.table-toggles {
+    display:none;
+}
+
+.column-toggle {
+    display:inline-block;
+    padding: 5px 10px;
+    // border-right: 1px dotted $grey-medium;
+}
+
+.toggle-label {
+    padding: 10px 15px 10px 10px;
+    border-radius: 30px;
+    background-color:$grey-light;
+    color:$grey-medium;
+    font-weight:400;
+    cursor:pointer;
+}
+
+
+

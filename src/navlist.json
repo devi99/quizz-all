@@ -1,0 +1,48 @@
+{
+    "routes": {
+      "/": "homeCtrl",
+      "form": "formCtrl",
+      "sync": "syncCtrl",
+      "play": "gameCtrl",
+      "parcel": "parcelCtrl",
+      "parcel-overview": "parcelOverviewCtrl",
+      "pickupcodes-overview": "pickupOverviewCtrl"
+    },
+    "navigation": [
+      {
+        "name": "Parcel Administration",
+        "url": "#",
+        "role": "Admin",
+        "subNav": [
+          {
+            "name": "Parcel List",
+            "url": "parcel-overview",
+            "role": "Admin",
+            "nav": "normal"
+          },
+          {
+            "name": "Pickup Codes",
+            "url": "pickupcodes-overview",
+            "role": "Admin",
+            "nav": "normal"
+          }
+        ]
+      },
+      {
+        "name": "Generate Form",
+        "url": "form",
+        "role": "All"
+      },
+      {
+        "name": "Sync",
+        "url": "sync",
+        "role": "All"
+      },
+      {
+        "name": "Play",
+        "url": "play",
+        "role": "All"
+      }
+    ]
+  }
+  

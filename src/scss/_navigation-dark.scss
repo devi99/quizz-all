@@ -1,0 +1,452 @@
+header {
+    // display:flex;
+    flex-direction:row;
+    align-items: flex-start;
+}
+
+header .app-branding {
+    display:inline;
+}
+
+header .logo-container {
+    display:inline-block;
+    vertical-align:top;
+    margin-left: -2px;
+    padding-top:2px;
+}
+
+header  h1.title-xl {
+    display:inline-block;
+    padding: 0px;
+    color:$white;
+    margin:0px;
+}
+
+header .logo-container object {
+    display:inline-block;
+    width:45px;
+    height:45px;   
+}
+
+header .app-name {
+    display:inline-block;
+    padding-top: 15px;
+    color:$white;
+    font-size: 1.3em;
+    font-weight:300;
+    text-transform:uppercase;
+}
+
+.nav-container {
+    overflow: visible;
+}
+
+.nav-container .settings-nav,
+.nav-container .settings-other,
+.nav-container .settings-lang {
+    display:inline;
+}
+
+.nav-settings-container {
+    position:relative;
+    overflow:visible;
+}
+
+.nav-container .settings-nav {
+    margin-top: 15px;
+    color:$white;
+    text-align:right;
+}
+
+.nav-container .settings-lang button {
+    border:none;
+    background:transparent;
+    color:$grey-medium;
+    cursor:pointer;
+    
+}
+
+.nav-container .settings-lang button:hover {
+    color:$blue-light;
+}
+
+.nav-container .settings-lang button.active {
+    color:$white;
+}
+
+.nav-container .settings-other button {
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    color:$white;
+    
+}
+
+.nav-container .settings-other button:hover {
+    color:$blue-light;
+}
+
+.nav-settings-menu {
+    position:absolute;
+    top: 1px;
+    right:15px;
+    display:none;
+    background: $grey-medium2;
+    min-height: 100px;
+    min-width: 200px;
+    padding: 0px 15px 0px 15px;
+    border-radius: 0px 0px 5px 5px;
+    z-index:3000;
+}
+
+.nav-settings-menu ul {
+    margin-top:0px;
+    margin-bottom: 0px;
+}
+
+.nav-settings-menu ul li {
+    margin-bottom: 0px;
+}
+
+.nav-settings-menu .nav-item {
+    padding: 10px 0px;
+    border-bottom: 1px dotted $grey-medium;
+    color:$white;
+}
+
+.nav-settings-menu .nav-item a:link,
+.nav-settings-menu .nav-item a:visited {
+    text-decoration:none;
+    color:$white;
+}
+
+.nav-settings-menu .nav-item a:hover {
+    color:$blue-light;
+}
+
+.nav-settings-menu .nav-item:last-child {
+    border-bottom: 0px;
+}
+
+.nav-settings-open {
+    display:block;
+}
+
+.nav-hamburger {
+    display:none;
+}
+
+nav.main-nav {
+    margin-top:0px !important;
+    // margin-bottom: 0px;
+    // padding-right: 0px;
+}
+
+nav ul.navbar {
+    z-index:10000;
+    position:relative;
+    list-style-type:none;
+    margin:0px;
+    padding: 0px;
+    height:49px;
+    //margin-left: -15px;
+}
+
+nav ul.navbar li.nav-item {
+    position:relative;
+    display:inline-block;   
+    line-height:1em; 
+    padding-left:0px;
+    margin-bottom: 0px;
+    margin-top:-15px;
+}
+
+nav ul.navbar li.nav-item:before {
+    content:'';
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+nav ul.navbar li a {
+    display:block;
+    color:$white;
+    padding: 16px;
+    text-decoration:none;
+}
+
+nav ul.navbar li a.highlight {
+    display:block;
+    color:$white;
+    background-color:$blue-light;
+    padding: 16px;
+    text-decoration:none;
+}
+
+nav ul.navbar li a.active-nav {
+    background-color:$grey-medium;
+    //padding: 16px;
+    text-decoration:none;
+}
+
+nav ul.navbar li a:hover {
+    background-color:$grey-medium;
+}
+
+nav ul.navbar li a.subnav-open {
+    background-color:$blue-light;
+}
+
+nav ul.subnav {
+    display:none;
+    background-color:$grey-medium2;
+    list-style-type:none;
+    margin:0px;
+    padding: 0px;
+    position:absolute;
+    top:64px;
+    left: 0px;
+    border-top:1px dotted $grey-medium;
+}
+
+nav ul.navbar li.nav-item ul.subnav li.nav-item {
+    float:none;
+    display:block;
+    min-width:200px;
+}
+
+nav ul.subnav li a {
+    display:block;
+    color:$white;
+    padding: 15px;
+    text-decoration:none;
+}
+
+nav ul.subnav li a:hover {
+    background-color:$orange;
+}
+
+.login {
+    color:$white;
+    display:block;
+    text-align:right;
+    float:right;
+    padding-top: 17px;
+}
+
+.login i {
+    padding-left: 10px;
+    cursor:pointer;
+}
+
+.login i:hover {
+    color:$blue-light;
+}
+
+/* Responsive */
+
+
+/* Large Devices, Wide Screens */
+
+@media only screen and (max-width: 1200px) {}
+
+
+/* Medium Devices, Desktops */
+
+@media only screen and (max-width: 992px) {
+    
+}
+
+
+/* Small Devices, Tablets */
+
+@media only screen and (max-width: 768px) {
+    .nav-container {
+        overflow: hidden;
+        width:100%;
+        padding-left:0px;
+        padding-right:0px;
+    }
+
+    header {
+        padding-left: 0px !important;
+    }
+
+    header .app-branding {
+        display:block;
+        width:100%;
+        margin-top:15px;
+        margin-bottom: 10px;
+    }
+
+    header .logo-container {
+        display:inline;
+    }
+
+    header .app-name {
+        display:inline-block;
+        padding-top:15px;
+    }
+
+    header .login {
+        color:$white;
+        display:block;
+        text-align:right;
+        float:none;
+        padding-top: 17px;
+        width:100%;
+        margin-bottom: 10px;
+    }
+
+    .nav-hamburger {
+        display:block;
+        float:left;
+        padding: 20px;
+    }
+
+    .nav-hamburger i {
+        font-size: 1.6em;
+        color:$white;
+    }
+    
+    nav.main-nav {
+        margin-top:0px !important;
+        margin-bottom: 0px;
+        padding-right: 0px;
+    }
+
+    nav .navbar {
+        display:none;
+    }
+
+    nav ul.navbar {
+        position: relative;
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+        height: auto;
+        padding-left: 0px;
+    }
+
+    nav ul.navbar li.nav-item {
+        position:relative;
+        display:block;
+        line-height:1em; 
+        padding-left:0px;
+        margin-bottom: 0px;
+        margin-top:-15px;
+    }
+
+    nav ul.subnav {
+        position:relative;
+        top: 0px;
+        left: 0px;
+    }
+
+    nav ul.subnav li a {
+        display: block;
+        color: #fff;
+        padding: 15px 15px 15px 40px;
+        text-decoration: none;
+    }
+}
+
+
+/* Extra Small Devices, Phones */
+
+@media only screen and (max-width: 480px) {
+
+    .nav-container {
+        overflow: hidden;
+        width:100%;
+        padding-left:0px;
+        padding-right:0px;
+    }
+
+    header {
+        padding-left: 0px !important;
+    }
+
+    header .app-branding {
+        display:block;
+        width:100%;
+        margin-top:15px;
+        margin-bottom: 10px;
+    }
+
+    header .logo-container {
+        display:inline;
+    }
+
+    header .app-name {
+        display:inline-block;
+        padding-top:15px;
+    }
+
+    header .login {
+        color:$white;
+        display:block;
+        text-align:right;
+        float:none;
+        padding-top: 17px;
+        width:100%;
+        margin-bottom: 10px;
+    }
+
+    .nav-hamburger {
+        display:block;
+        float:left;
+        padding: 20px;
+    }
+
+    .nav-hamburger i {
+        font-size: 1.6em;
+        color:$white;
+    }
+    
+    nav.main-nav {
+        margin-top:0px !important;
+        margin-bottom: 0px;
+        padding-right: 0px;
+    }
+
+    nav .navbar {
+        display:none;
+    }
+
+    nav ul.navbar {
+        position: relative;
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+        height: auto;
+        padding-left: 0px;
+    }
+
+    nav ul.navbar li.nav-item {
+        position:relative;
+        display:block;
+        line-height:1em; 
+        padding-left:0px;
+        margin-bottom: 0px;
+        margin-top:-15px;
+    }
+
+    nav ul.subnav {
+        position:relative;
+        top: 0px;
+        left: 0px;
+    }
+
+    nav ul.subnav li a {
+        display: block;
+        color: #fff;
+        padding: 15px 15px 15px 40px;
+        text-decoration: none;
+    }
+
+}
+
+
+/* Custom, iPhone Retina */
+
+@media only screen and (max-width: 320px) {}

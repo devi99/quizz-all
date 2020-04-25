@@ -1,0 +1,262 @@
+label {
+    font-family:$font-effra;
+    display:block;
+    font-weight:500;
+    color:$blue-light;
+    margin-bottom: 10px;
+}
+
+input,
+select {
+    display:block;
+    border:0px;
+    border-bottom: 1px solid $blue-light;
+    padding: 10px 0px; 
+}
+
+input:focus,
+select:focus {
+    outline:none;
+    box-shadow:none;
+    background-color:$yellow-pastel;
+}
+
+input.width-100,
+select.width-100 {
+    width:100%;   
+}
+
+input.width-75,
+select.width-75 {
+    width:75%;   
+}
+
+input.width-50,
+select.width-50 {
+    width:50%;   
+}
+
+input.width-25,
+select.width-25 {
+    width:25%;   
+}
+
+/* checkbox */
+
+
+input[type=checkbox],
+input[type=radio],
+.input-switch-xs {
+    display:inline-block;
+    padding:0;
+    font-size: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width:2em;
+    height: 1em;
+    background:$grey-light2;
+    border-radius:1em;
+    position:relative;
+    cursor:pointer;
+    outline:none;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    margin-bottom:-10px;
+    margin-top:15px;
+}
+
+input[type=radio] {
+    width:1em;
+}
+
+input[type=radio]:first-child,
+input[type=checkbox]:first-child,
+.input-switch-xs:first-child {
+    margin-top:0px;
+}
+
+input[type=checkbox]:after,
+input[type=radio]:after,
+.input-switch-xs:after {
+    position:absolute;
+    content:'';
+    width:1em;
+    height:1em;
+    border-radius:50%;
+    background:$white;
+    -webkit-box-shadow:0 0 0.25em rgba(0,0,0,0.3);
+    box-shadow: 0 0 0.25em rgba(0,0,0,0.3);
+    -webkit-transform:scale(0.7);
+    transform: scale(0.7);
+    left: 0;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition:all 0.2s ease-in-out;
+}
+
+input[type=radio]:after {
+    -webkit-transform:scale(0.5);
+    transform: scale(0.5);
+}
+
+input[type=checkbox]:checked,
+input[type=radio]:checked,
+.input-switch-xs:checked {
+    background-color:$orange;
+}
+
+input[type=checkbox]:checked:after,
+input[type=radio]:checked:after {
+    left: calc(100% - 1.0em);
+}
+
+.input-switch-xs {
+    width:1.5em !important;
+    height:0.7em !important;
+    margin-bottom: -5px !important;
+}
+
+.input-switch-xs:after {
+    width:0.7em !important;
+    height:0.7em !important;
+}
+
+.input-switch-xs:checked:after {
+    left: calc(100% - 0.7em) !important;
+}
+
+input.user-select {
+
+}
+
+.user-select-result,
+.itm-group-select {
+
+}
+
+// .autocomplete-items div {
+  //   padding: 10px;
+  //   cursor: pointer;
+  //   background-color: #fff; 
+  //   border-bottom: 1px solid #d4d4d4; 
+  // }
+  
+  // /*when hovering an item:*/
+  // .autocomplete-items .itm-name-row:hover {
+  //   background-color: #e9e9e9; 
+  // }
+
+.user-select-result .itm-name-row,
+.autocomplete-items .itm-name-row,
+.group-select-result .itm-group-row {
+    width:100%;
+    min-height:39px;
+    border-bottom: 1px dotted $grey-medium;
+}
+
+.user-select-result .itm-name-row:hover,
+.autocomplete-items .itm-name-row:hover,
+.group-select-result .itm-group-row:hover {
+    background-color:$grey-light;
+}
+
+.user-select-result .itm-name-row .user-name,
+.autocomplete-items .itm-name-row .name,
+.group-select-result .itm-group-row .group-name {
+    display:inline-block;
+    margin-top: 10px;
+}
+
+.user-select-result .itm-name-row button,
+.group-select-result .itm-group-row button {
+    float:right;
+}
+
+.notified-users-wrapper .notified-user-header {
+    padding: 10px 0px;
+    border-bottom: 1px solid $grey-medium;
+}
+
+.notified-users-wrapper .notified-user-header .header-label {
+    display:inline-block;
+    color:$grey-light2;
+    font-size: 0.8em;
+}
+
+.notified-users-wrapper .notified-user {
+    display:block;
+    padding: 10px 0px;
+    border-bottom: 1px dotted $grey-medium;
+}
+
+.notified-users-wrapper .notified-user .user-name {
+    display:inline-block;
+}
+
+.notified-users-wrapper .notified-user .user-code {
+    float:right;
+    font-weight:500;
+}
+
+/* Document & image uploads */
+
+.upload-container {
+    border: 2px dashed $grey-medium;
+    background-color:$grey-light;
+    text-align: center;
+    padding: 20px;
+}
+
+.drop-highlight {
+    background-color:$blue-light;
+}
+
+.doc-upload {
+
+    height: 35px;
+    width: 100%;
+    
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, $blue-light 50%, $blue-dark 50%);
+    background-size: 100% 200%;
+    transition: all 1s;
+    color: #FFFFFF;
+    font-size: 0.9em;
+
+    input[type='file'] {
+
+        height: 35px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    &:hover {
+        background-position: 0 -100%;
+        color: $white;
+    }
+
+    i {
+        margin-right:5px;
+    }
+}
+
+
+
+.photo-container .photo {
+    display:block;
+}
+
+.photo-container .photo img {
+    width:100%;
+}
+
+
