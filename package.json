@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production --config ./webpack/webpack.prod.config.js",
-    "build:Test": "webpack --mode development --config ./webpack/webpack.dev.config.js",
-    "start": "node ./dist/server.js",
+    "build:prod": "webpack --mode production --config ./webpack/webpack.prod.config.js",
+    "build:test": "webpack --mode development --config ./webpack/webpack.dev.config.js",
+    "start": "node ./server/server-prod.js",
     "startTest": "node ./server/server-dev.js",
     "build:sass": "sass ./src/scss/theme.scss ./src/css/main.css",
     "test": "echo \"Error: no test specified\" && exit 1"

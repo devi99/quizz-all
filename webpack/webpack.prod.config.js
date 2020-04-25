@@ -1,15 +1,17 @@
 const path = require("path")
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: './src/app.js'
+    main: './src/js/app.js'
   },
   output: {
     path: path.join(__dirname, '../dist'),
     publicPath: '/',
-    filename: '[name].js'
+    filename: '[name].[contenthash].js'
   },
   target: 'web',
   devtool: 'source-map',
@@ -42,10 +44,14 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin({cleanOnceBeforeBuildPatterns: ['**/*', '!css', '!css/**/*']}),
     new HtmlWebPackPlugin({
       template: "./src/html/index.html",
       filename: "./index.html",
       excludeChunks: [ 'server' ]
-    })
+    }),   
+    new CopyPlugin([
+      { from: 'src/css', to: 'css' }
+    ])
   ]
 }
