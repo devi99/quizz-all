@@ -737,14 +737,15 @@ class gameCtrl {
     }
     init() {
         console.log('loaded');
-        let ioClient = new IO();
-        let quiz = new Quiz(ioClient);
-        let hostScreen = new HostScreen(ioClient);
-        let playerScreen = new PlayerScreen(ioClient);
     }
 }
 
 export const init = gameCtrl.prototype.init;
+
+let ioClient = new IO();
+let quiz = new Quiz(ioClient);
+let hostScreen = new HostScreen(ioClient);
+let playerScreen = new PlayerScreen(ioClient);
 
 //let ctrl = new gameCtrl();
 //ctrl.init();
