@@ -26,9 +26,9 @@ function getSelectedOptions(sel, fn) {
 
 function setGenreOptions() {
     let dropdown = $('#selectedGenres');
-
-    //var jqxhr = $.get( "http://localhost:3000/api/genres/dropdown", function(data) {
-    var jqxhr = $.get( "https://kwispel.herokuapp.com/api/genres/dropdown", function(data) {
+    let _apiUrl = window.config.apiUrl + "/api/genres/dropdown";
+    var jqxhr = $.get( _apiUrl, function(data) {
+    //var jqxhr = $.get( "https://kwispel.herokuapp.com/api/genres/dropdown", function(data) {
         $.each(data.rows, function (key, entry) {
             dropdown.append($('<option></option>').attr('value', entry.id).text(entry.name));
           })

@@ -571,8 +571,9 @@ class PlayerScreen{
 
 class IO {
     constructor() {
-        this.socket = new ServerEventsDispatcher('wss://kwispel.herokuapp.com');
+        //this.socket = new ServerEventsDispatcher('wss://kwispel.herokuapp.com');
         //this.socket = new ServerEventsDispatcher('ws://localhost:3000');
+        this.socket = new ServerEventsDispatcher(window.config.socketUrl);
         this.bindEvents();
         this.socketId;
     }

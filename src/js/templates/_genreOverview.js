@@ -1,7 +1,7 @@
 //Main Title Screen that appears when the page loads for the first time
 export let content = `
 <div class="container-fluid">
-    <div id="example-table"></div>
+    <div id="genres-table"></div>
 </div>
 
 <div class="grid grid-pad">

@@ -103,7 +103,7 @@ export default class uiuxCtrl {
                     var ulNew = document.createElement("ul");
                     ulNew.setAttribute("class", "subnav");
                     li.appendChild(ulNew);
-                    buildMenu(item.subNav, ulNew, isAdmin);
+                    this.buildMenu(item.subNav, ulNew, isAdmin);
                 }
             }
         });

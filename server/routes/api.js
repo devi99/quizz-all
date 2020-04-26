@@ -13,7 +13,7 @@ var apiGenres = require('../controllers/genreController');
 router.get('/questions', api.getQuestions);  
 router.get('/genres/dropdown', apiGenres.genre_dropdown);  
 
-router.post('/', api.updateQuestion);
+router.post('/questions', api.updateQuestion);
 
 // GET request for creating a Question. NOTE This must come before route that displays question (uses id).
 //router.get('/create', question_controller.question_create_get);

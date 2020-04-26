@@ -5,25 +5,25 @@
       "sync": "syncCtrl",
       "play": "gameCtrl",
       "parcel": "parcelCtrl",
-      "parcel-overview": "parcelOverviewCtrl",
-      "pickupcodes-overview": "pickupOverviewCtrl"
+      "question-overview": "questionOverviewCtrl",
+      "genre-overview": "genreOverviewCtrl"
     },
     "navigation": [
       {
-        "name": "Parcel Administration",
+        "name": "Administration",
         "url": "#",
-        "role": "Admin",
+        "role": "All",
         "subNav": [
           {
-            "name": "Parcel List",
-            "url": "parcel-overview",
-            "role": "Admin",
+            "name": "Questions",
+            "url": "question-overview",
+            "role": "All",
             "nav": "normal"
           },
           {
-            "name": "Pickup Codes",
-            "url": "pickupcodes-overview",
-            "role": "Admin",
+            "name": "Genres",
+            "url": "genre-overview",
+            "role": "All",
             "nav": "normal"
           }
         ]
