@@ -4,13 +4,14 @@ var router = express.Router();
 
 // Require our controllers.
 var api = require('../controllers/questionApiController'); 
+var apiQuestions = require('../controllers/questionController'); 
 var apiGenres = require('../controllers/genreController'); 
 
 /// QUESTIONS ROUTES ///
 
 // GET question home page.
 //router.get('/', question_controller.question_list);  
-router.get('/questions', api.getQuestions);  
+router.get('/questions', apiQuestions.question_list);  
 router.get('/genres/dropdown', apiGenres.genre_dropdown);  
 
 router.post('/questions', api.updateQuestion);
