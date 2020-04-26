@@ -38,12 +38,10 @@ class App {
 (function () {
 
     window.config = {
-        //apiUrl: 'https://kwispel.herokuapp.com'
-        //apiUrl: 'https://qwizz-api.herokuapp.com'
-        apiUrl: 'http://localhost:3000',
-        socketUrl: 'ws://localhost:3000'
-        //socketUrl: 'wss://kwispel.herokuapp.com'
-        //apiUrl: process.env.API_URL
+        apiUrl: 'https://kwispel.herokuapp.com',
+        //apiUrl: 'http://localhost:3000',
+        //socketUrl: 'ws://localhost:3000'
+        socketUrl: 'wss://kwispel.herokuapp.com'
     };
 
     window.onpopstate = function (e) {
