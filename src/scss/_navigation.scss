@@ -279,26 +279,27 @@ nav ul.subnav li a:hover {
 
 .login i:hover {
     color:$blue-light;
-}*/
+}
+*/
 
 /* Responsive */
 
 
 /* Large Devices, Wide Screens */
 
-/*@media only screen and (max-width: 1200px) {}*/
+@media only screen and (max-width: 1200px) {}
 
 
 /* Medium Devices, Desktops */
 
-/*@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 992px) {
     
-}*/
+}
 
 
 /* Small Devices, Tablets */
 
-/*@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     .nav-container {
         overflow: hidden;
         width:100%;
@@ -387,12 +388,12 @@ nav ul.subnav li a:hover {
         padding: 15px 15px 15px 40px;
         text-decoration: none;
     }
-}*/
+}
 
 
 /* Extra Small Devices, Phones */
 
-/*@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 480px) {
 
     .nav-container {
         overflow: hidden;
@@ -483,9 +484,9 @@ nav ul.subnav li a:hover {
         text-decoration: none;
     }
 
-}*/
+}
 
 
 /* Custom, iPhone Retina */
 
-/*@media only screen and (max-width: 320px) {}*/
+@media only screen and (max-width: 320px) {}

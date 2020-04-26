@@ -1951,200 +1951,194 @@ nav ul.subnav li a:hover {
 
 .login i:hover {
     color:$blue-light;
-}*/
+}
+*/
 /* Responsive */
 /* Large Devices, Wide Screens */
-/*@media only screen and (max-width: 1200px) {}*/
 /* Medium Devices, Desktops */
-/*@media only screen and (max-width: 992px) {
-
-}*/
 /* Small Devices, Tablets */
-/*@media only screen and (max-width: 768px) {
-    .nav-container {
-        overflow: hidden;
-        width:100%;
-        padding-left:0px;
-        padding-right:0px;
-    }
+@media only screen and (max-width: 768px) {
+  .nav-container {
+    overflow: hidden;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 
-    header {
-        padding-left: 0px !important;
-    }
+  header {
+    padding-left: 0px !important;
+  }
 
-    header .app-branding {
-        display:block;
-        width:100%;
-        margin-top:15px;
-        margin-bottom: 10px;
-    }
+  header .app-branding {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
 
-    header .logo-container {
-        display:inline;
-    }
+  header .logo-container {
+    display: inline;
+  }
 
-    header .app-name {
-        display:inline-block;
-        padding-top:15px;
-    }
+  header .app-name {
+    display: inline-block;
+    padding-top: 15px;
+  }
 
-    header .login {
-        color:$white;
-        display:block;
-        text-align:right;
-        float:none;
-        padding-top: 17px;
-        width:100%;
-        margin-bottom: 10px;
-    }
+  header .login {
+    color: #fff;
+    display: block;
+    text-align: right;
+    float: none;
+    padding-top: 17px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
 
-    .nav-hamburger {
-        display:block;
-        float:left;
-        padding: 20px;
-    }
+  .nav-hamburger {
+    display: block;
+    float: left;
+    padding: 20px;
+  }
 
-    .nav-hamburger i {
-        font-size: 1.6em;
-        color:$white;
-    }
+  .nav-hamburger i {
+    font-size: 1.6em;
+    color: #fff;
+  }
 
-    nav.main-nav {
-        margin-top:0px !important;
-        margin-bottom: 0px;
-        padding-right: 0px;
-    }
+  nav.main-nav {
+    margin-top: 0px !important;
+    margin-bottom: 0px;
+    padding-right: 0px;
+  }
 
-    nav .navbar {
-        display:none;
-    }
+  nav .navbar {
+    display: none;
+  }
 
-    nav ul.navbar {
-        position: relative;
-        list-style-type: none;
-        margin: 0px;
-        padding: 0px;
-        height: auto;
-        padding-left: 0px;
-    }
+  nav ul.navbar {
+    position: relative;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    height: auto;
+    padding-left: 0px;
+  }
 
-    nav ul.navbar li.nav-item {
-        position:relative;
-        display:block;
-        line-height:1em; 
-        padding-left:0px;
-        margin-bottom: 0px;
-        margin-top:-15px;
-    }
+  nav ul.navbar li.nav-item {
+    position: relative;
+    display: block;
+    line-height: 1em;
+    padding-left: 0px;
+    margin-bottom: 0px;
+    margin-top: -15px;
+  }
 
-    nav ul.subnav {
-        position:relative;
-        top: 0px;
-        left: 0px;
-    }
+  nav ul.subnav {
+    position: relative;
+    top: 0px;
+    left: 0px;
+  }
 
-    nav ul.subnav li a {
-        display: block;
-        color: #fff;
-        padding: 15px 15px 15px 40px;
-        text-decoration: none;
-    }
-}*/
+  nav ul.subnav li a {
+    display: block;
+    color: #fff;
+    padding: 15px 15px 15px 40px;
+    text-decoration: none;
+  }
+}
 /* Extra Small Devices, Phones */
-/*@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 480px) {
+  .nav-container {
+    overflow: hidden;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 
-    .nav-container {
-        overflow: hidden;
-        width:100%;
-        padding-left:0px;
-        padding-right:0px;
-    }
+  header {
+    padding-left: 0px !important;
+  }
 
-    header {
-        padding-left: 0px !important;
-    }
+  header .app-branding {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
 
-    header .app-branding {
-        display:block;
-        width:100%;
-        margin-top:15px;
-        margin-bottom: 10px;
-    }
+  header .logo-container {
+    display: inline;
+  }
 
-    header .logo-container {
-        display:inline;
-    }
+  header .app-name {
+    display: inline-block;
+    padding-top: 15px;
+  }
 
-    header .app-name {
-        display:inline-block;
-        padding-top:15px;
-    }
+  header .login {
+    color: #fff;
+    display: block;
+    text-align: right;
+    float: none;
+    padding-top: 17px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
 
-    header .login {
-        color:$white;
-        display:block;
-        text-align:right;
-        float:none;
-        padding-top: 17px;
-        width:100%;
-        margin-bottom: 10px;
-    }
+  .nav-hamburger {
+    display: block;
+    float: left;
+    padding: 20px;
+  }
 
-    .nav-hamburger {
-        display:block;
-        float:left;
-        padding: 20px;
-    }
+  .nav-hamburger i {
+    font-size: 1.6em;
+    color: #fff;
+  }
 
-    .nav-hamburger i {
-        font-size: 1.6em;
-        color:$white;
-    }
+  nav.main-nav {
+    margin-top: 0px !important;
+    margin-bottom: 0px;
+    padding-right: 0px;
+  }
 
-    nav.main-nav {
-        margin-top:0px !important;
-        margin-bottom: 0px;
-        padding-right: 0px;
-    }
+  nav .navbar {
+    display: none;
+  }
 
-    nav .navbar {
-        display:none;
-    }
+  nav ul.navbar {
+    position: relative;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    height: auto;
+    padding-left: 0px;
+  }
 
-    nav ul.navbar {
-        position: relative;
-        list-style-type: none;
-        margin: 0px;
-        padding: 0px;
-        height: auto;
-        padding-left: 0px;
-    }
+  nav ul.navbar li.nav-item {
+    position: relative;
+    display: block;
+    line-height: 1em;
+    padding-left: 0px;
+    margin-bottom: 0px;
+    margin-top: -15px;
+  }
 
-    nav ul.navbar li.nav-item {
-        position:relative;
-        display:block;
-        line-height:1em; 
-        padding-left:0px;
-        margin-bottom: 0px;
-        margin-top:-15px;
-    }
+  nav ul.subnav {
+    position: relative;
+    top: 0px;
+    left: 0px;
+  }
 
-    nav ul.subnav {
-        position:relative;
-        top: 0px;
-        left: 0px;
-    }
-
-    nav ul.subnav li a {
-        display: block;
-        color: #fff;
-        padding: 15px 15px 15px 40px;
-        text-decoration: none;
-    }
-
-}*/
+  nav ul.subnav li a {
+    display: block;
+    color: #fff;
+    padding: 15px 15px 15px 40px;
+    text-decoration: none;
+  }
+}
 /* Custom, iPhone Retina */
-/*@media only screen and (max-width: 320px) {}*/
 label {
   font-family: effra, sans-serif;
   display: block;

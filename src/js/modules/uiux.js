@@ -114,16 +114,16 @@ export default class uiuxCtrl {
         let navContainer = document.getElementById('app-nav');
         let nav = document.getElementById('app-nav-list');
         
-        if(mobileNavToggle) { // close
+        if(this.mobileNavToggle) { // close
             console.log('close nav');
             nav.style.display = 'none';
             navContainer.style.overflow = 'hidden';
-            mobileNavToggle = false;
+            this.mobileNavToggle = false;
         } else { // open
             console.log('open nav');
             nav.style.display = 'block';
             navContainer.style.overflow = 'visible';
-            mobileNavToggle = true;
+            this.mobileNavToggle = true;
         }
     }
 

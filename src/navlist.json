@@ -1,7 +1,7 @@
 {
     "routes": {
       "/": "homeCtrl",
-      "form": "formCtrl",
+      "new-question": "questionCtrl",
       "sync": "syncCtrl",
       "play": "gameCtrl",
       "parcel": "parcelCtrl",
@@ -29,8 +29,8 @@
         ]
       },
       {
-        "name": "Generate Form",
-        "url": "form",
+        "name": "New Question",
+        "url": "new-question",
         "role": "All"
       },
       {
