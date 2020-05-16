@@ -14,7 +14,9 @@ exports.question_list = async function(req, res, next) {
         const { rows, rowCount } = await db.query(findAllQuery);
         //console.log(rowCount);
         //res.render('question_list', { title: 'Question List', list_questions:  rows});
-        return res.status(200).send({ rows, rowCount });
+        //return res.status(200).send({ rows, rowCount });
+        return res.status(200).json(rows)
+
     } catch(error) {
         return res.status(400).send(error);
     }

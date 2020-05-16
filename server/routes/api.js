@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 //const Game = require('../models/question');
+var bodyParser = require('body-parser');
 
 // Require our controllers.
 var api = require('../controllers/questionApiController'); 
@@ -8,13 +9,19 @@ var apiQuestions = require('../controllers/questionController');
 var apiGenres = require('../controllers/genreController'); 
 
 /// QUESTIONS ROUTES ///
+var jsonParser = bodyParser.json()
 
 // GET question home page.
 //router.get('/', question_controller.question_list);  
 router.get('/questions', apiQuestions.question_list);  
+
+// GET request for one question.
+router.get('/question/:id', api.getQuestionDetail);
+
 router.get('/genres/dropdown', apiGenres.genre_dropdown);  
 
 router.post('/questions', api.updateQuestion);
+router.put('/question/update', jsonParser, api.updateQuestionAll);
 
 // GET request for creating a Question. NOTE This must come before route that displays question (uses id).
 //router.get('/create', question_controller.question_create_get);
@@ -29,12 +36,9 @@ router.post('/questions', api.updateQuestion);
 //router.post('/:id/delete', question_controller.question_delete_post);
 
 // GET request to update question.
-//router.get('/:id/update', question_controller.question_update_get);
+router.get('/:id/update', apiQuestions.question_update_get);
 
 // POST request to update question.
 //router.post('/:id/update', question_controller.question_update_post);
-
-// GET request for one question.
-//router.get('/:id', question_controller.question_detail);
 
 module.exports = router;

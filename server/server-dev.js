@@ -2,20 +2,21 @@ const express = require('express')
 const path = require('path');
 const { createServer } = require('http')
 const WebSocket = require('ws');
-const apiRoutes = require('./routes/api');
+const apiRoutes = require('./routes/api')
+
 
 // Import the game file.
 var guizlogic = require('./gameserverlogic');
 
 const app = express(),
             DIST_DIR = path.join(__dirname, '/test'),
-            HTML_FILE = path.join(DIST_DIR, 'index.html')
+            HTML_FILE = path.join(DIST_DIR, 'index.html');
 
-app.use(express.static(DIST_DIR))
-app.use('/api', apiRoutes);
+app.use(express.static(DIST_DIR));
+app.use('/api', apiRoutes)
 app.get('*', (req, res) => {
     res.sendFile(HTML_FILE)
-})
+});
 
 const server = createServer(app);
 const wss = new WebSocket.Server({ server });

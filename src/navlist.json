@@ -2,6 +2,7 @@
     "routes": {
       "/": "homeCtrl",
       "new-question": "questionCtrl",
+      "question": "questionCtrl",
       "sync": "syncCtrl",
       "play": "gameCtrl",
       "parcel": "parcelCtrl",

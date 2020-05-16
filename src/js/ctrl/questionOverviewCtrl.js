@@ -54,7 +54,7 @@ class questionOverviewCtrl {
         }
                  
         async function displayRow(id) {
-            window.location.href = window.config.apiUrl + '/questions/'+id;    
+            window.location.href = window.config.apiUrl + '/question/'+id;    
         }
     }
 

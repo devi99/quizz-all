@@ -24,6 +24,7 @@
   "homepage": "https://github.com/devi99/quiz-webapp#readme",
   "dependencies": {
     "async": "^3.2.0",
+    "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.1.1",
@@ -33,6 +34,7 @@
     "express-validator": "^6.4.0",
     "fs": "0.0.1-security",
     "jquery": "^3.5.0",
+    "mustache": "^4.0.1",
     "pg": "^8.0.2",
     "popper.js": "^1.16.1",
     "sass": "^1.26.5",
