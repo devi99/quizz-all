@@ -198,12 +198,12 @@ class HostScreen{
         //App.doTextFit('#hostWord');
         //Insert the Image
         //console.log(data.typeMedia);
-        if(data.typeMedia == 'pic') {
+        if(data.typeMedia == 1) {
             //$('body').css('backgroundImage','url('+data.urlMedia+')');
             $('#hostMedia').html("<img id='image' class='object-fit_scale-down' src='"+data.urlMedia+"'>");
         }
-        if(data.typeMedia == 'vid') {
-            $('#hostMedia').html("<div class='embed-container'><iframe id='youtubeplayer' src='"+data.urlMedia+"' frameborder='0' gesture='media' allow='autoplay;encrypted-media'></iframe><div class='bar'></div></div>");
+        if(data.typeMedia == 2) {
+            $('#hostMedia').html("<div class='embed-container'><iframe id='youtubeplayer' src='"+data.urlMedia+"?autoplay=1' frameborder='0' gesture='media' allow='autoplay;encrypted-media'></iframe><div class='bar'></div></div>");
         }
         $('#image').height( $(window).height() - $("#hostWord").height()- 30 );
         console.log("update the data");
