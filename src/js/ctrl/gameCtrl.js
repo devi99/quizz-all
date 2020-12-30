@@ -428,7 +428,7 @@ class PlayerScreen{
 
         $('#gameArea').html('<span id="countdownQuestion"></span><input id="inputAnswered" type="text" value="false" style="display:none" />');
             
-        if (data.typeQuestion == 1){
+        if (data.typeQuestion == 2){
 
             var $answerField = " <div class='info'><label for='inputAnswer'>Your Answer:</label><input id='inputAnswer' type='text' /></div><button id='btnAnswer' class='btnSendAnswer btn'>SEND</button>";
             $('#gameArea').append($answerField);

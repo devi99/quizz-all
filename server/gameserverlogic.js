@@ -79,12 +79,12 @@ async function hostPrepareGame(hostData) {
     if(arrGenresForQuery.length > 0) whereClauseGenres = "where " + arrGenresForQuery.join('OR');
 
     try {
-        const findQuestionsQuery = 'select id from questions ' + whereClauseGenres + ' order by random() limit ' + hostData.numQuestions;
+        const findQuestionsQuery = 'select question_id from questions ' + whereClauseGenres + ' order by random() limit ' + hostData.numQuestions;
         const { rows, rowCount } = await db.query(findQuestionsQuery);
 
         var arrQuestionIds = new Array();        
         for (item in rows) {
-            arrQuestionIds.push(rows[item].id);
+            arrQuestionIds.push(rows[item].question_id);
           };
 
         var game = 
@@ -94,7 +94,7 @@ async function hostPrepareGame(hostData) {
            hostData.numberOfPlayers,
            arrQuestionIds
         ];    
-        const createGameQuery = 'INSERT INTO games(gameid, status,  type,  numberofplayers ,  questions ) VALUES($1, $2, $3, $4, $5) returning *';
+        const createGameQuery = 'INSERT INTO games(game_id, status,  game_type,  numberofplayers ,  questions ) VALUES($1, $2, $3, $4, $5) returning *';
         var values = game;    
         const { row } = await db.query(createGameQuery, values);
       } 
@@ -287,7 +287,7 @@ function playerRestart(data) {
  * @param gameId The room identifier
  */
 async function sendQuestion(wordPoolIndex, gameId) {
-    //console.log("sendWord#" + wordPoolIndex + "#" + gameId )
+    console.log("sendWord#" + wordPoolIndex + "#" + gameId )
     var data = await getQuestionData(wordPoolIndex, gameId);
     console.log('gameId:' + gameId + ':round' + data.round + ' sent question ' + data.word);
 
@@ -308,10 +308,10 @@ async function sendQuestion(wordPoolIndex, gameId) {
  * @returns {{round: *, word: *, answer: *, list: Array}}
  */
 async function getQuestionData(i, id){
-    //console.log("getwordData");
+    console.log("getwordData");
     var wordData;
     var roundForSql = i+1;
-    const text = 'SELECT questions.* FROM games JOIN questions ON questions.id = games.questions[$1] WHERE games.gameid=$2';
+    const text = 'SELECT questions.* FROM games JOIN questions ON questions.question_id = games.questions[$1] WHERE games.game_id=$2';
     const { rows } = await db.query(text, [roundForSql,id]);
  
     var answerList = [

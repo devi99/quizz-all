@@ -31,9 +31,9 @@ class genreOverviewCtrl {
             },
         });
 
-        async function updateRow(row) {
+        function updateRow(row) {
 
-            let promise = new Promise((resolve, reject) => {
+            //let promise = new Promise((resolve, reject) => {
                 $.ajax({
                     url: window.config.apiUrl + '/questions',
                     dataType: 'json',
@@ -47,9 +47,9 @@ class genreOverviewCtrl {
                         console.log( errorThrown );
                     }
                 });
-            });
+            //});
 
-            let result = await promise; // wait till the promise resolves (*)
+            //let result = await promise; // wait till the promise resolves (*)
 
         }
                  

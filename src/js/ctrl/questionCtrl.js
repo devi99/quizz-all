@@ -18,11 +18,23 @@ class questionCtrl {
         //let _questionID = pathArr[1];
         //let _questionTitle = getElById('title').value
         //let _typeQuestion = getElById('typeQuestion').value
-
+        let selectGenre = document.getElementById('genres');
+        var selectedGenres = [...selectGenre.selectedOptions]
+                          .map(option => option.value);
         let questionUpdate = {
-                id: pathArr[1],
+                question_id: parseInt(pathArr[1]),
                 title: getElById('title').value,
-                typequestion: getElById('typeQuestion').value
+                subtext: getElById('subText').value,
+                typequestion: parseInt(getElById('answerTypes').value),
+                correctanswer: getElById('correctAnswer').value,  
+                fakeanswer1: getElById('fakeAnswer1').value, 
+                fakeanswer2: getElById('fakeAnswer2').value, 
+                fakeanswer3: getElById('fakeAnswer3').value,
+                fakeanswer4: getElById('fakeAnswer4').value, 
+                fakeanswer5: getElById('fakeAnswer5').value, 
+                typemedia: parseInt(getElById('typeMedia').value), 
+                urlmedia: getElById('urlMedia').value,
+                genres: selectedGenres
         };
 
         apiCall(window.config.apiUrl, '/api/question/update', questionUpdate, "PUT")
@@ -43,16 +55,34 @@ class questionCtrl {
                 let fullPath = window.location.pathname.substr(window.location.pathname.indexOf('/') + 1);
                 fullPath = fullPath.toLowerCase();
                 let pathArr = fullPath.split('/');
-
-                apiCall(window.config.apiUrl, '/api/question/' + pathArr[1], {}, "GET").then(result => {
-                    console.log(result);
-                    output = Mustache.render(_template.content, result);
-                    document.getElementById('app-container').innerHTML = output;
-                    document.getElementById('saveQuestion').addEventListener('click', this.saveQuestion);
-                });
-                //var output = Mustache.render(_template.content, _template.templateVars);
-                let output = _template.content;
-
+                
+                if(pathArr[0] == 'new-question')  {
+                    apiCall(window.config.apiUrl, '/api/questions/new', {}, "POST").then(result => {
+                        let varInput = JSON.stringify(result);
+                        let output = Mustache.render(_template.content, varInput);
+                        document.getElementById('app-container').innerHTML = output;
+                        document.getElementById('saveQuestion').addEventListener('click', this.saveQuestion);
+                    });                    
+                }else{
+                    apiCall(window.config.apiUrl, '/api/question/' + pathArr[1], {}, "GET").then(result => {
+                        let output = Mustache.render(_template.content, result);
+                        document.getElementById('app-container').innerHTML = output;
+                        let answerTypes = document.getElementById("answerTypes");
+                        let indexTypes = result.typequestion > 0 ? result.typequestion - 1 : 0; 
+                        answerTypes.options[indexTypes].selected = true;
+                        let mediaTypes = document.getElementById("typeMedia");
+                        indexTypes = result.typemedia > 0 ? result.typemedia - 1 : 0; 
+                        mediaTypes.options[indexTypes].selected = true; 
+                        let genres = document.getElementById("genres");
+                        if(result.genres != null) {
+                            result.genres.forEach(element => {
+                                indexTypes = element > 0 ? element - 1 : 0; 
+                                genres.options[indexTypes].selected = true;                                  
+                            });
+                        } 
+                        document.getElementById('saveQuestion').addEventListener('click', this.saveQuestion);
+                    });
+                }
             }).catch(err => {
                 console.error(err);
             });

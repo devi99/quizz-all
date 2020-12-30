@@ -1,4 +1,5 @@
 import Tabulator from 'tabulator-tables';
+import { apiCall } from "../modules/modUtility.js";
 
 class questionOverviewCtrl {
     constructor() {
@@ -13,46 +14,36 @@ class questionOverviewCtrl {
             pagination:"local",
             paginationSize:20,
             columns:[
-                {title:"Id", field:"id", visible:false},
+                {title:"Id", field:"question_id", visible:false},
                 {title:"Title", field:"title",editor:true},
-                {title:"Type", field:"typequestion", formatter:"lookup", formatterParams:{"0": "MultipleChoice","1": "SingleTextInput"}, editor:"select", editorParams:{values:{"0":"MultipleChoice", "1":"SingleTextInput"}}},
+                {title:"Type", field:"typequestion", formatter:"lookup", formatterParams:{"1": "MultipleChoice","2": "SingleTextInput"}, editor:"select", editorParams:{values:{"0":"MultipleChoice", "1":"SingleTextInput"}}},
             ],
             ajaxURL:window.config.apiUrl+'/api/questions', //ajax URL
             cellEdited:function(cell){
                 var data = cell.getData();
-                updateRow(data);
+
+                let questionUpdate = {
+                    'op': 'replace',
+                    'path': cell.getField(),
+                    'value': cell.getValue(),
+                };
+    
+                apiCall(window.config.apiUrl, '/api/question/' + data.question_id + '/update', questionUpdate, "PATCH")
+                .then(res => {
+                        console.log("The contract details have been saved...")
+                    })
+                .catch(err => console.log('apiCall err: ', err));    
+                //updateRow(data);
             },
             rowDblClick:function(e, row){
                 var data = row.getData();
 
-                displayRow(data.id);
+                displayRow(data.question_id);
                 //e - the click event object
                 //row - row component
             },
         });
-
-        async function updateRow(row) {
-
-            let promise = new Promise((resolve, reject) => {
-                $.ajax({
-                    url: window.config.apiUrl + '/questions',
-                    dataType: 'json',
-                    type: 'post',
-                    contentType: 'application/json',
-                    data: JSON.stringify(row),
-                    success: function( data, textStatus, jQxhr ){
-                        $('#response pre').html( data );
-                    },
-                    error: function( jqXhr, textStatus, errorThrown ){
-                        console.log( errorThrown );
-                    }
-                });
-            });
-
-            let result = await promise; // wait till the promise resolves (*)
-
-        }
-                 
+             
         async function displayRow(id) {
             window.location.href = window.config.apiUrl + '/question/'+id;    
         }

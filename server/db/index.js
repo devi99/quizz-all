@@ -4,9 +4,17 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
+// const pool = new Pool({
+//   connectionString: process.env.DATABASE_URL || "postgres://localhost:5432/quiz"
+// });
+
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || "postgres://localhost:5432/quiz"
-});
+  user: 'quizer',
+  host: 'localhost',
+  database: 'quiz',
+  password: 'azerty123',
+  port: 5432,
+})
 
 pool.on('connect', () => {
   //console.log('connected to the db');
@@ -24,7 +32,7 @@ const query = (text, params) => {
     //console.log('params: ' + params);
     pool.query(text, params)
     .then((res) => {
-      //console.log('res: ' + res);
+      console.log('res: ' + res);
       resolve(res);
     })
     .catch((err) => {

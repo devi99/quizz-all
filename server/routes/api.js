@@ -13,15 +13,16 @@ var jsonParser = bodyParser.json()
 
 // GET question home page.
 //router.get('/', question_controller.question_list);  
-router.get('/questions', apiQuestions.question_list);  
+router.get('/questions', api.getQuestions);  
 
 // GET request for one question.
 router.get('/question/:id', api.getQuestionDetail);
 
 router.get('/genres/dropdown', apiGenres.genre_dropdown);  
 
-router.post('/questions', api.updateQuestion);
+router.post('/questions/new', api.postQuestionCreate);
 router.put('/question/update', jsonParser, api.updateQuestionAll);
+router.patch('/question/:id/update', jsonParser, api.updateQuestion);
 
 // GET request for creating a Question. NOTE This must come before route that displays question (uses id).
 //router.get('/create', question_controller.question_create_get);
