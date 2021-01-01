@@ -203,7 +203,28 @@ class HostScreen{
             $('#hostMedia').html("<img id='image' class='object-fit_scale-down' src='"+data.urlMedia+"'>");
         }
         if(data.typeMedia == 2) {
-            $('#hostMedia').html("<div class='embed-container'><iframe id='youtubeplayer' src='"+data.urlMedia+"' frameborder='0' allow='autoplay;encrypted-media'></iframe><div class='bar'></div></div>");
+            $('#hostMedia').html("<div class='embed-container'><div id='yt'></div><div class='bar'></div></div>");
+            this.videosPlayer = new YT.Player('yt', {
+                width: '682',
+                height: '383',
+                videoId: data.urlMedia,
+                playerVars: {
+                    origin : window.location.host
+                },
+                events: {
+                    'onReady': function(event){
+                        console.debug(event.target.getPlayerState())
+                        event.target.playVideo();
+                      },
+                    'onStateChange': function(event){
+                        console.debug(event.target.getPlayerState())
+                      },
+                    'onError': function(e){
+                        console.debug('ytError: ' + e)
+                    }
+                }
+            })            
+            //$('#hostMedia').html("<div class='embed-container'><iframe id='youtubeplayer' src='"+data.urlMedia+"' frameborder='0' allow='autoplay;encrypted-media'></iframe><div class='bar'></div></div>");
         }
         $('#image').height( $(window).height() - $("#hostWord").height()- 30 );
         console.log("update the data");
