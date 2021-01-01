@@ -1,7 +1,6 @@
 const path = require("path")
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
-const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
