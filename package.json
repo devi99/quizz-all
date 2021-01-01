@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "sass ./src/scss/theme.scss ./src/css/main.css && webpack --mode production --config ./webpack/webpack.prod.config.js",
+    "build": "sass ./src/scss/theme.scss ./src/css/main.css && webpack --mode development --config ./webpack/webpack.prod.config.js",
     "build:prod": "webpack --mode development --config ./webpack/webpack.prod.config.js",
     "build:test": "webpack --mode development --config ./webpack/webpack.dev.config.js",
     "start": "node ./server/server-prod.js",
