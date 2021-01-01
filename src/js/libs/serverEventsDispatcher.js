@@ -15,6 +15,7 @@ ServerEventsDispatcher.prototype.connect = function (url) {
     // dispatch to the right handlers
     this.conn.onmessage = function(evt){
         var json = JSON.parse(evt.data)
+        console.debug(json);
         dispatch(json[0], json[1])
     };
     this.conn.onclose = function(){
