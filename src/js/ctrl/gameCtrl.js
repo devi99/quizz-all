@@ -89,11 +89,11 @@ class HostScreen{
         this.currentCorrectAnswer = '';
     }
     processQuizInitData(){
-        console.debug(Date.now() + ": processQuizInitData "); 
+        console.debug(new Date(Date.now()).toLocaleTimeString() + ": processQuizInitData "); 
 
         this.$gameArea  = document.getElementById("gameArea");
         this.gameType = document.getElementById("gameTypes").selectedIndex;
-        this.answerType = document.getElementById("answerTypes").selectedIndex
+        this.answerType = document.getElementById("answerTypes").selectedIndex;
         this.numPlayersInTotal = parseInt($('#nUsers').val());
         this.numQuestions = parseInt($('#nQuestions').val());
         this.selectedGenres = getSelectedOptions(document.getElementById("selectedGenres"));
@@ -103,7 +103,7 @@ class HostScreen{
     }
 
     displayStartGameScreen(data){
-        console.debug(Date.now() + ": displayStartGameScreen with data " + data);    
+        console.debug(new Date(Date.now()).toLocaleTimeString() + ": displayStartGameScreen with data " + data);    
 
         this.gameId = data.gameId;
 
@@ -123,7 +123,7 @@ class HostScreen{
      * @param serverData{{playerName: string}}
      */
     updateWaitingScreen(serverData) {
-        console.debug(Date.now() + ": updateWaitingScreen with data " + serverData);    
+        console.debug(new Date(Date.now()).toLocaleTimeString() + ": updateWaitingScreen with data " + serverData);    
         // If this is a restarted game, show the screen.
         // if ( App.Host.isNewGame ) {
         //     App.Host.displayNewGameScreen();
@@ -140,7 +140,7 @@ class HostScreen{
 
         // If two players have joined, start the game!
         if (this.numPlayersInRoom == this.numPlayersInTotal) {
-            console.debug(Date.now() + ": Room is Full with " + this.numPlayersInRoom + "/" + this.numPlayersInTotal);    
+            console.debug(new Date(Date.now()).toLocaleTimeString() + ": Room is Full with " + this.numPlayersInRoom + "/" + this.numPlayersInTotal);    
             var data = {
                 gameId : this.gameId,
                 numberOfPlayers : this.numPlayersInTotal,
@@ -149,7 +149,7 @@ class HostScreen{
                 numQuestions: this.numQuestions,
                 selectedGenres:this.selectedGenres
             };
-            console.debug(Date.now() + ": emit hostRoomFull with data " + data);    
+            console.debug(new Date(Date.now()).toLocaleTimeString() + ": emit hostRoomFull with data " + data);    
             ioClient.socket.emit('hostRoomFull',data);
             
         };
@@ -161,7 +161,7 @@ class HostScreen{
      */
     gameCountdown() {
 
-        console.debug(Date.now() + ": gameCountdown ");    
+        console.debug(new Date(Date.now()).toLocaleTimeString() + ": gameCountdown ");    
         // Prepare the game screen with new HTML
         this.$gameArea.innerHTML = htmlTemplate.hostGameTemplate;
         
@@ -389,7 +389,7 @@ class PlayerScreen{
     }
 
     onPlayerStartClick() {
-        console.debug(Date.now() + ": onPlayerStartClick ");    
+        console.debug(new Date(Date.now()).toLocaleTimeString() + ": onPlayerStartClick ");    
 
         this.gameId = $('#inputGameId').val();
         this.playerName = $('#inputPlayerName').val() || 'anon';
@@ -414,7 +414,7 @@ class PlayerScreen{
      * @param data
      */
     updateWaitingScreen() {
-        console.debug(Date.now() + ": updateWaitingScreen for gameId " + this.gameId);    
+        console.debug(new Date(Date.now()).toLocaleTimeString() + ": updateWaitingScreen for gameId " + this.gameId);    
 
         $('#playerWaitingMessage')
         .append('<p/>')
@@ -430,7 +430,7 @@ class PlayerScreen{
      * @param hostData
      */
     gameCountdown() {
-        console.debug(Date.now() + ": gameCountdown");    
+        console.debug(new Date(Date.now()).toLocaleTimeString() + ": gameCountdown");    
         //App.Player.hostSocketId = hostData.mySocketId;
         $('#gameArea')
             .html('<div class="gameOver">Get Ready!</div>');
@@ -625,7 +625,7 @@ class IO {
         //App.mySocketId = this.socket.id;
         this.socketId = data.id;
         //console.log(data.message + " socketId= " + this.id );
-        console.debug(Date.now() + ": OnConnected with id " + data.id);            
+        console.debug(new Date(Date.now()).toLocaleTimeString() + ": OnConnected with id " + data.id);            
     }
 
     /**
@@ -633,7 +633,7 @@ class IO {
      * @param data {{ gameId: int, mySocketId: * }}
      */
     gameInit(data){
-        console.debug(Date.now() + ": gameInit with data " + data);          
+        console.debug(new Date(Date.now()).toLocaleTimeString() + ": gameInit with data " + data);          
         hostScreen.displayStartGameScreen(data);
     }
 
@@ -642,7 +642,7 @@ class IO {
      * @param data {{playerName: string, gameId: int, mySocketId: int}}
      */
     playerJoinedRoom(serverData) {
-        console.debug(Date.now() + ": playerJoinedRoom with serverData " + serverData);          
+        console.debug(new Date(Date.now()).toLocaleTimeString() + ": playerJoinedRoom with serverData " + serverData);          
         // When a player joins a room, do the updateWaitingScreen funciton.
         // There are two versions of this function: one for the 'host' and
         // another for the 'player'.
@@ -650,10 +650,10 @@ class IO {
         // So on the 'host' browser window, the App.Host.updateWiatingScreen function is called.
         // And on the player's browser, App.Player.updateWaitingScreen is called.
         if (quiz.roleScreen == 'Host') {
-            console.debug(Date.now() + ": playerJoinedRoom roleScreen " + quiz.roleScreen);    
+            console.debug(new Date(Date.now()).toLocaleTimeString() + ": playerJoinedRoom roleScreen " + quiz.roleScreen);    
             hostScreen.updateWaitingScreen(serverData);
         }else{
-            console.debug(Date.now() + ": playerJoinedRoom roleScreen " + quiz.roleScreen);    
+            console.debug(new Date(Date.now()).toLocaleTimeString() + ": playerJoinedRoom roleScreen " + quiz.roleScreen);    
             playerScreen.updateWaitingScreen();
         }
     }
@@ -663,12 +663,12 @@ class IO {
      * @param data
      */
     beginNewGame(serverData) {
-        console.debug(Date.now() + ": beginNewGame with serverData " + serverData);    
+        console.debug(new Date(Date.now()).toLocaleTimeString() + ": beginNewGame with serverData " + serverData);    
         if (quiz.roleScreen == 'Host') {
-            console.debug(Date.now() + ": beginNewGame with Host " + quiz.roleScreen);    
+            console.debug(new Date(Date.now()).toLocaleTimeString() + ": beginNewGame with Host " + quiz.roleScreen);    
             hostScreen.gameCountdown(serverData);
         }else{
-            console.debug(Date.now() + ": beginNewGame with Host " + quiz.roleScreen);    
+            console.debug(new Date(Date.now()).toLocaleTimeString() + ": beginNewGame with Host " + quiz.roleScreen);    
             playerScreen.gameCountdown();
         }
     }
