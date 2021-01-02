@@ -123,36 +123,40 @@ class HostScreen{
      * @param serverData{{playerName: string}}
      */
     updateWaitingScreen(serverData) {
-        console.debug(new Date(Date.now()).toISOString() + ": updateWaitingScreen with data " + serverData);    
+
         // If this is a restarted game, show the screen.
         // if ( App.Host.isNewGame ) {
         //     App.Host.displayNewGameScreen();
         // }
-        // Update host screen
-        $('#playersWaiting')
-            .append('<p>Player ' + serverData.playerName + ' joined the game.<p/>');
+        // Check if user already joined
+        if ( !this.players.includes(serverData.playerName) ) {
+            console.debug(new Date(Date.now()).toISOString() + ": updateWaitingScreen with data " + serverData);    
+            $('#playersWaiting').append('<p>Player ' + serverData.playerName + ' joined the game.<p/>');
 
-        // Store the new player's data on the Host.
-        this.players.push(serverData);
+            // Store the new player's data on the Host.
+            this.players.push(serverData);
 
-        // Increment the number of players in the room
-        this.numPlayersInRoom += 1;
+            // Increment the number of players in the room
+            this.numPlayersInRoom += 1;
 
-        // If two players have joined, start the game!
-        if (this.numPlayersInRoom == this.numPlayersInTotal) {
-            console.debug(new Date(Date.now()).toISOString() + ": Room is Full with " + this.numPlayersInRoom + "/" + this.numPlayersInTotal);    
-            var data = {
-                gameId : this.gameId,
-                numberOfPlayers : this.numPlayersInTotal,
-                gameType: this.gameType,
-                answerType: this.answerType,
-                numQuestions: this.numQuestions,
-                selectedGenres:this.selectedGenres
-            };
-            console.debug(new Date(Date.now()).toISOString() + ": emit hostRoomFull with data " + data);    
-            ioClient.socket.emit('hostRoomFull',data);
-            
-        };
+            // If two players have joined, start the game!
+            if (this.numPlayersInRoom == this.numPlayersInTotal) {
+                console.debug(new Date(Date.now()).toISOString() + ": Room is Full with " + this.numPlayersInRoom + "/" + this.numPlayersInTotal);    
+                var data = {
+                    gameId : this.gameId,
+                    numberOfPlayers : this.numPlayersInTotal,
+                    gameType: this.gameType,
+                    answerType: this.answerType,
+                    numQuestions: this.numQuestions,
+                    selectedGenres:this.selectedGenres
+                };
+                console.debug(new Date(Date.now()).toISOString() + ": emit hostRoomFull with data " + data);    
+                ioClient.socket.emit('hostRoomFull',data);
+                
+            };            
+        }else{
+            console.debug(new Date(Date.now()).toISOString() + ": updateWaitingScreen user already Joined ");    
+        }
 
     }
 
