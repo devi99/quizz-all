@@ -89,6 +89,8 @@ class HostScreen{
         this.currentCorrectAnswer = '';
     }
     processQuizInitData(){
+        console.debug(Date.now() + ": processQuizInitData "); 
+
         this.$gameArea  = document.getElementById("gameArea");
         this.gameType = document.getElementById("gameTypes").selectedIndex;
         this.answerType = document.getElementById("answerTypes").selectedIndex
@@ -101,6 +103,7 @@ class HostScreen{
     }
 
     displayStartGameScreen(data){
+        console.debug(Date.now() + ": displayStartGameScreen with data " + data);    
 
         this.gameId = data.gameId;
 
@@ -120,6 +123,7 @@ class HostScreen{
      * @param serverData{{playerName: string}}
      */
     updateWaitingScreen(serverData) {
+        console.debug(Date.now() + ": updateWaitingScreen with data " + serverData);    
         // If this is a restarted game, show the screen.
         // if ( App.Host.isNewGame ) {
         //     App.Host.displayNewGameScreen();
@@ -136,8 +140,7 @@ class HostScreen{
 
         // If two players have joined, start the game!
         if (this.numPlayersInRoom == this.numPlayersInTotal) {
-            console.log('Room is full. Almost ready!');
-
+            console.debug(Date.now() + ": Room is Full with " + this.numPlayersInRoom + "/" + this.numPlayersInTotal);    
             var data = {
                 gameId : this.gameId,
                 numberOfPlayers : this.numPlayersInTotal,
@@ -146,15 +149,10 @@ class HostScreen{
                 numQuestions: this.numQuestions,
                 selectedGenres:this.selectedGenres
             };
-            //var selGenres = ["Kids", "History"];
-            //console.log(data.selectedGenres);
-            //console.log(selGenres);
-            // Let the server know that the players are present.
-            //IO.socket.emit('hostRoomFull',App.gameId);
+            console.debug(Date.now() + ": emit hostRoomFull with data " + data);    
             ioClient.socket.emit('hostRoomFull',data);
+            
         };
-
-        console.log(this.numPlayersInRoom + '/' + this.numPlayersInTotal + ' in Room!');
 
     }
 
@@ -163,7 +161,7 @@ class HostScreen{
      */
     gameCountdown() {
 
-        console.log('gamecountdown started...');   
+        console.debug(Date.now() + ": gameCountdown ");    
         // Prepare the game screen with new HTML
         this.$gameArea.innerHTML = htmlTemplate.hostGameTemplate;
         
@@ -391,7 +389,7 @@ class PlayerScreen{
     }
 
     onPlayerStartClick() {
-        console.log('Player clicked "Start"');
+        console.debug(Date.now() + ": onPlayerStartClick ");    
 
         this.gameId = $('#inputGameId').val();
         this.playerName = $('#inputPlayerName').val() || 'anon';
@@ -416,6 +414,7 @@ class PlayerScreen{
      * @param data
      */
     updateWaitingScreen() {
+        console.debug(Date.now() + ": updateWaitingScreen for gameId " + this.gameId);    
 
         $('#playerWaitingMessage')
         .append('<p/>')
@@ -431,6 +430,7 @@ class PlayerScreen{
      * @param hostData
      */
     gameCountdown() {
+        console.debug(Date.now() + ": gameCountdown");    
         //App.Player.hostSocketId = hostData.mySocketId;
         $('#gameArea')
             .html('<div class="gameOver">Get Ready!</div>');
@@ -601,7 +601,6 @@ class IO {
 
     bindEvents() {
         this.socket.bind('connected', this.onConnected );
-        // this.socket.on('connected', this.onConnected );
         this.socket.bind('newGameCreated', this.gameInit );
         this.socket.bind('playerJoinedRoom', this.playerJoinedRoom );
         this.socket.bind('beginNewGame', this.beginNewGame );
@@ -626,7 +625,7 @@ class IO {
         //App.mySocketId = this.socket.id;
         this.socketId = data.id;
         //console.log(data.message + " socketId= " + this.id );
-        console.log("connected");            
+        console.debug(Date.now() + ": OnConnected with id " + data.id);            
     }
 
     /**
@@ -634,8 +633,8 @@ class IO {
      * @param data {{ gameId: int, mySocketId: * }}
      */
     gameInit(data){
+        console.debug(Date.now() + ": gameInit with data " + data);          
         hostScreen.displayStartGameScreen(data);
-        console.log('game init');
     }
 
     /**
@@ -643,7 +642,7 @@ class IO {
      * @param data {{playerName: string, gameId: int, mySocketId: int}}
      */
     playerJoinedRoom(serverData) {
-        console.log('playerJoinedRoom');
+        console.debug(Date.now() + ": playerJoinedRoom with serverData " + serverData);          
         // When a player joins a room, do the updateWaitingScreen funciton.
         // There are two versions of this function: one for the 'host' and
         // another for the 'player'.
@@ -651,8 +650,10 @@ class IO {
         // So on the 'host' browser window, the App.Host.updateWiatingScreen function is called.
         // And on the player's browser, App.Player.updateWaitingScreen is called.
         if (quiz.roleScreen == 'Host') {
+            console.debug(Date.now() + ": playerJoinedRoom roleScreen " + quiz.roleScreen);    
             hostScreen.updateWaitingScreen(serverData);
         }else{
+            console.debug(Date.now() + ": playerJoinedRoom roleScreen " + quiz.roleScreen);    
             playerScreen.updateWaitingScreen();
         }
     }
@@ -662,9 +663,12 @@ class IO {
      * @param data
      */
     beginNewGame(serverData) {
+        console.debug(Date.now() + ": beginNewGame with serverData " + serverData);    
         if (quiz.roleScreen == 'Host') {
+            console.debug(Date.now() + ": beginNewGame with Host " + quiz.roleScreen);    
             hostScreen.gameCountdown(serverData);
         }else{
+            console.debug(Date.now() + ": beginNewGame with Host " + quiz.roleScreen);    
             playerScreen.gameCountdown();
         }
     }

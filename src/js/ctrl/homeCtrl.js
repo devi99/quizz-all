@@ -28,14 +28,6 @@ class homeCtrl {
                 }
             }
         })
-
-        //let urlMedia = prompt('url?');
-        //let urlMedia = 'm2YJ7aR25P0';
-        
-        //playerObject.onYouTubeIframeAPIReady(urlMedia);
-        //playerObject.playVideo();
-
-        //document.getElementById('app-container').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/y3jIkLwozRs?autoplay=1" frameborder="0" allow="autoplay;encrypted-media" allowfullscreen></iframe>';
     }
 }
 
