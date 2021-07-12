@@ -5,7 +5,10 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || "postgres://postgres:azerty123@localhost:5432/quiz"
+  connectionString: process.env.DATABASE_URL || "postgres://postgres:azerty123@localhost:5432/quiz",
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 // const pool = new Pool({
